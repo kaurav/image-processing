@@ -1,0 +1,22 @@
+function k = value(doverA,aoverA)
+	up=(1-(aoverA)^2-(2*aoverA*doverA)-(doverA)^2);
+	down=(aoverA*doverA+(doverA)^2);
+	k=up/down;
+	return;
+
+h=figure(1);
+grid on;
+title('Damped Response of a Single Degree of Freedom...');
+     xlabel('Time (seconds)');
+     ylabel('Displacement (mm)');
+
+doverA = 0.03:0.01:0.3
+aoverA = input("enter the value of aoverA")
+
+k = value(doverA,aoverA);
+
+p1 = (k,doverA,'r-');
+p2 = plot(k,doverA,'g-');
+
+subplot(1,1,1)
+fplot(p1,p2);

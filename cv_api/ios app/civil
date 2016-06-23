@@ -1,0 +1,24 @@
+function k=value(doverA,aoverA)
+   up=(1-(aoverA)^2-(2*aoverA*doverA)-(doverA)^2);
+   down=(aoverA*doverA+(doverA)^2);
+   k=up/down;
+end
+k=ones(1,1)
+h=figure(1);
+grid on;
+title('Damped Response of a Single Degree of Freedom...');
+     xlabel('Time (seconds)');
+     ylabel('Displacement (mm)');
+%value(0.03,0.5)
+aoverA=0.3
+counter=0
+for doverA = 0.03:0.01:0.3
+   counter=counter+1
+   k(counter,1)=value(doverA,aoverA);
+endfor
+%endfor
+%kx=k'
+dx = 0.03:0.01:0.3
+plot(k,dx,'r-');
+print(h,'-dpng','-color','vib_plt4.png');
+disp('k is')

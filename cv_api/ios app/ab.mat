@@ -1,0 +1,32 @@
+function k=value(doverA,aoverA)
+	up=(1-(aoverA)^2-(2*aoverA*doverA)-(doverA)^2);
+	down=(aoverA*doverA+(doverA)^2);
+	k=up/down;
+	return;
+end
+aoverA=0.3
+doverA = 0.03:0.01:0.3
+k=value(doverA,aoverA)
+
+dx = 0.03:0.01:0.3
+plot(k,dx,'r-');
+print(h,'-dpng','-color','vib_plt4.png');
+disp('k is')
+
+
+
+
+
+
+function (doverA,aoverA)
+	up=(1-(aoverA)^2-(2*aoverA*doverA)-(doverA)^2);
+    down=(aoverA*doverA+(doverA)^2);
+    k=up/down;
+    return;
+end
+ 
+for doverA = 0.03:0.01:0.3
+	counter=counter+1
+	k(counter,1)=value(doverA,aoverA);
+endfor
+
